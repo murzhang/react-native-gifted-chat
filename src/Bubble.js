@@ -93,7 +93,7 @@ export default class Bubble extends React.Component {
 
   onLongPress() {
     if (this.props.onLongPress) {
-      this.props.onLongPress(this.context, this.props.currentMessage);
+      this.props.onLongPress(this.context);
     } else {
       if (this.props.currentMessage.text) {
         const options = [
@@ -126,7 +126,9 @@ export default class Bubble extends React.Component {
             {...this.props.touchableProps}
           >
             <View>
-            
+              {this.renderCustomView()}
+              {this.renderMessageImage()}
+              {this.renderMessageText()}
               <View style={[styles.bottom, this.props.bottomContainerStyle[this.props.position]]}>
                 {this.renderTime()}
                 {this.renderTicks()}
