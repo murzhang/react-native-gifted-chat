@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import {
   StyleSheet,
   Text,
@@ -56,9 +57,9 @@ Send.defaultProps = {
 };
 
 Send.propTypes = {
-  text: React.PropTypes.string,
-  onSend: React.PropTypes.func,
-  sendLabel: React.PropTypes.string,
+  text: PropTypes.string,
+  onSend: PropTypes.func,
+  sendLabel: PropTypes.string,
   containerStyle: View.propTypes.style,
   textStyle: Text.propTypes.style,
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import {
   Linking,
   StyleSheet,
@@ -103,7 +104,7 @@ const styles = {
 };
 
 MessageText.contextTypes = {
-  actionSheet: React.PropTypes.func,
+  actionSheet: PropTypes.func,
 };
 
 MessageText.defaultProps = {
@@ -117,18 +118,6 @@ MessageText.defaultProps = {
 };
 
 MessageText.propTypes = {
-  position: React.PropTypes.oneOf(['left', 'right']),
-  currentMessage: React.PropTypes.object,
-  containerStyle: React.PropTypes.shape({
-    left: View.propTypes.style,
-    right: View.propTypes.style,
-  }),
-  textStyle: React.PropTypes.shape({
-    left: Text.propTypes.style,
-    right: Text.propTypes.style,
-  }),
-  linkStyle: React.PropTypes.shape({
-    left: Text.propTypes.style,
-    right: Text.propTypes.style,
-  }),
+  position: PropTypes.oneOf(['left', 'right']),
+  currentMessage: PropTypes.object,
 };
