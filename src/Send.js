@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ViewPropTypes
 } from 'react-native';
 
 export default class Send extends React.Component {
@@ -20,7 +21,7 @@ export default class Send extends React.Component {
         <TouchableOpacity
           style={[styles.container, this.props.containerStyle]}
           onPress={() => {
-            this.props.onSend({text: this.props.text.trim()}, true);
+            this.props.onSend({ text: this.props.text.trim() }, true);
           }}
           accessibilityTraits="button"
         >
@@ -28,7 +29,7 @@ export default class Send extends React.Component {
         </TouchableOpacity>
       );
     }
-    return <View/>;
+    return <View />;
   }
 }
 
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
 
 Send.defaultProps = {
   text: '',
-  onSend: () => {},
+  onSend: () => { },
   sendLabel: 'Send',
   containerStyle: {},
   textStyle: {},
@@ -60,6 +61,6 @@ Send.propTypes = {
   text: PropTypes.string,
   onSend: PropTypes.func,
   sendLabel: PropTypes.string,
-  containerStyle: View.propTypes.style,
+  containerStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
   textStyle: Text.propTypes.style,
 };

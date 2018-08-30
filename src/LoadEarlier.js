@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ViewPropTypes
 } from 'react-native';
 
 export default class LoadEarlier extends React.Component {
@@ -21,8 +22,8 @@ export default class LoadEarlier extends React.Component {
     return (
       <View>
         <Text style={[styles.text, this.props.textStyle, {
-            opacity: 0,
-          }]}>
+          opacity: 0,
+        }]}>
           {this.props.loadEarlierLabel}
         </Text>
         <ActivityIndicator
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
 });
 
 LoadEarlier.defaultProps = {
-  onLoadEarlier: () => {},
+  onLoadEarlier: () => { },
   isLoadingEarlier: false,
   loadEarlierLabel: 'Load earlier messages',
   containerStyle: {},
@@ -95,8 +96,8 @@ LoadEarlier.propTypes = {
   onLoadEarlier: PropTypes.func,
   isLoadingEarlier: PropTypes.bool,
   loadEarlierLabel: PropTypes.string,
-  containerStyle: View.propTypes.style,
-  wrapperStyle: View.propTypes.style,
+  containerStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
+  wrapperStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
   textStyle: Text.propTypes.style,
-  activityIndicatorStyle: View.propTypes.style,
+  activityIndicatorStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
 };

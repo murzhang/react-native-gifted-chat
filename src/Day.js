@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  ViewPropTypes
 } from 'react-native';
 
 import moment from 'moment/min/moment-with-locales.min';
@@ -71,8 +72,8 @@ Day.defaultProps = {
 Day.propTypes = {
   currentMessage: PropTypes.object,
   previousMessage: PropTypes.object,
-  containerStyle: View.propTypes.style,
-  wrapperStyle: View.propTypes.style,
+  containerStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
+  wrapperStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
   textStyle: Text.propTypes.style,
   //TODO: remove in next major release
   isSameDay: PropTypes.func,

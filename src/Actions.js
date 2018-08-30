@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ViewPropTypes
 } from 'react-native';
 
 export default class Actions extends React.Component {
@@ -105,6 +106,6 @@ Actions.propTypes = {
   optionTintColor: PropTypes.string,
   icon: PropTypes.func,
   onPressActionButton: PropTypes.func,
-  containerStyle: View.propTypes.style,
+  containerStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
   iconTextStyle: Text.propTypes.style,
 };

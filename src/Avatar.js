@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import {Image, StyleSheet, View} from "react-native";
+import { Image, StyleSheet, View, ViewPropTypes } from "react-native";
 import GiftedAvatar from "./GiftedAvatar";
-import {isSameUser, isSameDay, warnDeprecated} from "./utils";
+import { isSameUser, isSameDay, warnDeprecated } from "./utils";
 
 export default class Avatar extends React.Component {
   renderAvatar() {
     if (this.props.renderAvatar) {
-      const {renderAvatar, ...avatarProps} = this.props;
+      const { renderAvatar, ...avatarProps } = this.props;
       return this.props.renderAvatar(avatarProps);
     }
     return (
@@ -23,7 +23,7 @@ export default class Avatar extends React.Component {
     const messageToCompare = renderAvatarOnTop ? this.props.previousMessage : this.props.nextMessage;
     const computedStyle = renderAvatarOnTop ? "onTop" : "onBottom"
 
-    if (1==0 && isSameUser(this.props.currentMessage, messageToCompare) && isSameDay(this.props.currentMessage, messageToCompare)) {
+    if (1 == 0 && isSameUser(this.props.currentMessage, messageToCompare) && isSameDay(this.props.currentMessage, messageToCompare)) {
       return (
         <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
           <GiftedAvatar
@@ -92,12 +92,12 @@ Avatar.propTypes = {
   currentMessage: PropTypes.object,
   nextMessage: PropTypes.object,
   containerStyle: PropTypes.shape({
-    left: View.propTypes.style,
-    right: View.propTypes.style,
+    left: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
+    right: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
   }),
   imageStyle: PropTypes.shape({
-    left: View.propTypes.style,
-    right: View.propTypes.style,
+    left: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
+    right: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
   }),
   //TODO: remove in next major release
   isSameDay: PropTypes.func,
